@@ -1,0 +1,30 @@
+<div class="container">
+
+    <!-- Para validar cuando no hay coincidencias en la busqueda-->
+    <h2>Buscando: <small>{{ busqueda }}</small> </h2>
+    <div class="row" *ngIf="heroes.length == 0">
+        <div class="col-md-8">
+            <div class="alert alert-danger" role="alert">
+                No hay resultados con el termino {{ busqueda}}
+            </div>
+        </div>
+    </div>
+
+    <div class="card-group">
+
+        <div class="card animated fadeIn fast" *ngFor="let heroe of heroes; let i = index">
+            <img [src]="heroe.img" class="card-img-top" [alt]="heroe.nombre">
+            <div class="card-body">
+                <h5 class="card-title">{{ heroe.nombre}}</h5>
+                <p class="card-text">{{ heroe.bio}}</p>
+                <p class="card-text"><small class="text-muted">{{ heroe.aparicion}}</small></p>
+                <br>
+                <a [routerLink]="['/heroes']" class="btn btn-outline-danger btn-block">Regresar</a>
+                <!-- <button (click)="verHeroe(i)" type="button" class="btn btn-outline-primary btn-block">Ver mas...</button> -->
+                <!-- <a [routerLink]="['/heroe', i]" class="btn btn-outline-primary btn-block">Ver mas...</a> -->
+            </div>
+        </div>
+
+    </div>
+
+</div>
