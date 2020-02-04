@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 
-export interface Heroe{
-    nombre:string;
-    bio:string;
-    img:string;
-    aparicion:string;
-    casa:string;
+export interface Heroe {
+    nombre: string;
+    bio: string;
+    img: string;
+    aparicion: string;
+    casa: string;
 }
 
 @Injectable()
 export class HeroesService{
 
-    private heroes:Heroe[] = [
+    private heroes: Heroe[] = [
         {
           nombre: "Aquaman",
           bio: "El poder más reconocido de Aquaman es la capacidad telepática para comunicarse con la vida marina, la cual puede convocar a grandes distancias.",
@@ -63,33 +63,34 @@ export class HeroesService{
         }
       ];
 
-    constructor(){
-            console.log("Servicio listo para usarse");
+    constructor() {
+            console.log('Servicio listo para usarse');
     }
 
-    //metodo para obtener los heroes del array, ya que como es un atributo privado por si solo no puede ser accedido fuera de su clase padre
+    // metodo para obtener los heroes del array,
+    // ya que como es un atributo privado por si solo no puede ser accedido fuera de su clase padre
 
-    public getHeroes():Heroe[]{
+    public getHeroes(): Heroe[]{
         return this.heroes;
     }
 
-    getHeroe(index:number){
+    getHeroe(index: number){
       return this.heroes[index];
     }
 
-    buscarHeroes(busqueda:string):Heroe[]{
-       let heroesArray:Heroe[] = [];
-      //Para convertir la busqueda en minusculas!!!!!!!!!!!!
+    buscarHeroes(busqueda: string): Heroe[] {
+       const heroesArray: Heroe[] = [];
+      // Para convertir la busqueda en minusculas!!!!!!!!!!!!
        busqueda = busqueda.toLocaleLowerCase();
-       
-       //this.heroes es el nombre del array!!!!!!!!!!!!
-       for(let heroe of this.heroes){
 
-        //Se convierte el nombre que esta en el array en minusculas para compararlo con el de la busqueda que previamente tambien fue convertido en minusculas
-            let nombre = heroe.nombre.toLocaleLowerCase();
-            //Para buscar un string dentro del nombre (regresa un 0 o superior si se encuentra alguna coincidencia)
-            if(nombre.indexOf(busqueda) >= 0){
-              //Para agregar el heroe o las coincidencias al arreglo de heroes 'heroesArray'
+       // this.heroes es el nombre del array!!!!!!!!!!!!
+       for ( const heroe of this.heroes ) {
+
+        // Se convierte el nombre que esta en el array en minusculas para compararlo con el de la busqueda que previamente tambien fue convertido en minusculas
+            const nombre = heroe.nombre.toLocaleLowerCase();
+            // Para buscar un string dentro del nombre (regresa un 0 o superior si se encuentra alguna coincidencia)
+            if (nombre.indexOf(busqueda) >= 0) {
+              // Para agregar el heroe o las coincidencias al arreglo de heroes 'heroesArray'
                 heroesArray.push(heroe);
             }
        }
