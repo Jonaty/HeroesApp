@@ -2,7 +2,7 @@
 
     <h1>Heroes!!</h1>
     <div class="card-columns">
-      <app-heroe-tarjeta [heroe]="heroe" [index]="i" *ngFor="let heroe of heroes, index as i"></app-heroe-tarjeta>
+      <app-heroe-tarjeta (heroeSeleccionado)="verHeroe($event)" [heroe]="heroe" [index]="i" *ngFor="let heroe of heroes, index as i"></app-heroe-tarjeta>
     </div>
 
 </div>

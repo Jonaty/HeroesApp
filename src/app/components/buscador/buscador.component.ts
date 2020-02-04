@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-//Para pasar el parametro que esta en la URL del archivo de rutas!!!!!!!!!!!!!!!
+// Para pasar el parametro que esta en la URL del archivo de rutas!!!!!!!!!!!!!!!
 import { ActivatedRoute } from '@angular/router';
 import { HeroesService, Heroe } from '../../services/heroes.service';
 
@@ -23,6 +23,7 @@ export class BuscadorComponent implements OnInit {
       console.log(this.heroes);
     });
   }
+
 
 }
 

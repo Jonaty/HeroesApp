@@ -94,8 +94,6 @@ export class HeroesService{
                 heroesArray.push(heroe);
             }
        }
-
        return heroesArray;
-
     }
 }
