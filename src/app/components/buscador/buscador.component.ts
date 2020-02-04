@@ -9,19 +9,18 @@ import { HeroesService, Heroe } from '../../services/heroes.service';
 })
 export class BuscadorComponent implements OnInit {
 
-  //Se crea un array porque pueden ser varias coincidencias al buscar
-  heroes:Heroe[] = [];
-  busqueda:string;
+  // Se crea un array porque pueden ser varias coincidencias al buscar
+  heroes: Heroe[] = [];
+  busqueda: string;
 
-  constructor(private activatedRoute:ActivatedRoute, private _heroesService:HeroesService) { }
+  constructor(private activatedRoute: ActivatedRoute, private heroesService: HeroesService) { }
 
   ngOnInit() {
-    
     this.activatedRoute.params.subscribe(params =>{
-      //Se agrega el nombre del parametro el cual fue pasado en las rutas
+      // Se agrega el nombre del parametro el cual fue pasado en las rutas
       this.busqueda = params['busqueda'];
-      this.heroes = this._heroesService.buscarHeroes(params['busqueda']);
-      console.log(this.heroes); 
+      this.heroes = this.heroesService.buscarHeroes(params['busqueda']);
+      console.log(this.heroes);
     });
   }
 
